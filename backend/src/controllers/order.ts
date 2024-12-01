@@ -44,7 +44,7 @@ export const createOrder = async (req: Request, res: Response, next: NextFunctio
             return next( new BadRequestError( 'Order data error: order total sum wrong'));
           }
 
-        return res.status(200).send({
+        return res.status(201).send({
             id: uuidv4(),
             total: orderSum,
           });
