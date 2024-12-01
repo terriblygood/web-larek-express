@@ -17,6 +17,9 @@ services:
       - db:/data/db
     networks:
       - internal
+    ports:
+      - "28000:27017"
+    command: ["--noauth"]
 
   backend:
     restart: always
@@ -28,7 +31,7 @@ services:
       - ./backend/src:/app/src
       - public:/app/src/public
     ports:
-      - 3000:3000
+      - 27017:27017
     networks:
       - internal
     depends_on:
